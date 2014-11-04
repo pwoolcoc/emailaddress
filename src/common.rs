@@ -1,7 +1,10 @@
+use std::from_str::FromStr;
+use simple::parse;
+
 #[deriving(Show, PartialEq)]
 pub struct Address {
-    local: String,
-    domain: String,
+    pub local: String,
+    pub domain: String,
 }
 
 impl Address {
@@ -12,3 +15,13 @@ impl Address {
         }
     }
 }
+
+impl FromStr for Address {
+    fn from_str(string: &str) -> Option<Address> {
+        match parse(string.to_string()) {
+            Ok(s) => Some(s),
+            Err(_) => None,
+        }
+    }
+}
+
