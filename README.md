@@ -10,7 +10,7 @@ use emailaddress::simple;
 
 fn main() {
     let email = simple::parse("someone@example.com");
-    assert_eq!(email.local, "someone".to_string());
+    assert_eq!(email.local, "someone".to_string()); 
     assert_eq!(email.domain, "example.com".to_string());
 }
 
@@ -25,4 +25,20 @@ fn main() {
 }
 
 ```
+
+## Simple parsing
+
+The "simple" parsing algorithm is this:
+
+  # take the last occurrence of the '@' symbol
+  # everything to the right of it is the domain part
+  # everything to the left of it is the local port
+
+"WHAT??!!"
+
+Yes, that's it. Not really a parser. Not really an algorithm (at least,
+not much of one). But for reasons why you would want to use it, see
+[here][1] or just google/duckduckgo/startpage for "email address RFC".
+
+1: http://girders.org/blog/2013/01/31/dont-rfc-validate-email-addresses/
 
