@@ -30,9 +30,9 @@ fn main() {
 
 The "simple" parsing algorithm is this:
 
-  # take the last occurrence of the '@' symbol
-  # everything to the right of it is the domain part
-  # everything to the left of it is the local port
+  * take the last occurrence of the '@' symbol
+  * everything to the right of it is the domain part
+  * everything to the left of it is the local port
 
 "WHAT??!!"
 
