@@ -38,7 +38,7 @@ The "simple" parsing algorithm is this:
 
 Yes, that's it. Not really a parser. Not really an algorithm (at least,
 not much of one). But for reasons why you would want to use it, see
-[here](http://girders.org/blog/2013/01/31/dont-rfc-validate-email-addresses/) or just google/duckduckgo/startpage for "email address RFC".
+http://girders.org/blog/2013/01/31/dont-rfc-validate-email-addresses/ or just google/duckduckgo/startpage for "email address RFC".
 
 
 
