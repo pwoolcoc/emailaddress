@@ -1,5 +1,17 @@
 use std::from_str::FromStr;
+use std::error::Error;
 use simple::parse;
+
+#[deriving(Show)]
+pub struct AddrError {
+    pub msg: String
+}
+
+impl Error for AddrError {
+    fn description(&self) -> &str {
+        self.msg.as_slice()
+    }
+}
 
 #[deriving(Show, PartialEq)]
 pub struct Address {
