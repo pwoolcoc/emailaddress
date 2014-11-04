@@ -20,8 +20,10 @@ use emailaddress::Address;
 
 fn main() {
   let email: Option<Address> = from_str("someone@example.com");
-  assert_eq!(email.local, "someone".to_string());
-  assert_eq!(email.domain, "example.com".to_string());
+  assert_eq!(
+    email.unwrap(),
+    Address::new("someone".to_string(), "example.com".to_string())
+  );
 }
 
 ```
