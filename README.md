@@ -11,6 +11,16 @@ fn main() {
     assert_eq!(email.local, "someone".to_string());
     assert_eq!(email.domain, "example.com".to_string());
 }
-```
 
+// or with from_str:
+
+use emailaddress::Address;
+
+fn main() {
+  let email: Option<Address> = from_str("someone@example.com");
+  assert_eq!(email.local, "someone".to_string());
+  assert_eq!(email.domain, "example.com".to_string());
+}
+
+```
 
