@@ -1,5 +1,7 @@
 # Email Address type for Rust
 
+[![Build Status](https://travis-ci.org/pwoolcoc/emailaddress.svg?branch=master)](https://travis-ci.org/pwoolcoc/emailaddress)
+
 This crate implements email address parsing for Rust, as well as an `Address` type, 
 so you can stop stringly-typing your email addresses.
 
