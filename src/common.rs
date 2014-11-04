@@ -30,7 +30,7 @@ impl Address {
 
 impl FromStr for Address {
     fn from_str(string: &str) -> Option<Address> {
-        match parse(string.to_string()) {
+        match parse(string) {
             Ok(s) => Some(s),
             Err(_) => None,
         }

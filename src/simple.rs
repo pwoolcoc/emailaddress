@@ -26,7 +26,7 @@ mod test {
     #[test]
     fn test_simple_parse() {
         assert_eq!(
-                parse("someone@example.com".to_string()).unwrap(),
+                parse("someone@example.com").unwrap(),
                 Address::new("someone".to_string(), "example.com".to_string())
             );
     }
