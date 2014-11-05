@@ -19,9 +19,9 @@ fn main() {
 use emailaddress::EmailAddress;
 
 fn main() {
-  let email: Option<EmailAddress> = from_str("someone@example.com");
+  let email = from_str::<EmailAddress>("someone@example.com").unwrap();
   assert_eq!(
-    email.unwrap(),
+    email,
     EmailAddress {
         local: "someone".to_string(),
         domain: "example.com".to_string()
