@@ -1,6 +1,9 @@
-use common::{Address, AddrError};
+use common::{EmailAddress, AddrError};
 
-pub fn parse(string: &str) -> Result<Address, AddrError> {
-    Ok(Address::new("test".to_string(), "example.com".to_string()))
+pub fn parse(string: &str) -> Result<EmailAddress, AddrError> {
+    Ok(EmailAddress {
+        local: "test".to_string(),
+        domain: "example.com".to_string()
+    })
 }
 

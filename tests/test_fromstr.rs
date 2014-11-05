@@ -1,11 +1,14 @@
 extern crate emailaddress;
-use self::emailaddress::Address;
+use self::emailaddress::EmailAddress;
 
 #[test]
 fn test_from_str() {
-    let addr: Option<Address> = from_str("someone@example.com");
+    let addr: Option<EmailAddress> = from_str("someone@example.com");
     assert_eq!(
             addr.unwrap(),
-            Address::new("someone".to_string(), "example.com".to_string())
+            EmailAddress {
+                local: "someone".to_string(),
+                domain: "example.com".to_string()
+            }
         );
 }

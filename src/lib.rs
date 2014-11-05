@@ -1,5 +1,5 @@
 #![feature(globs)]
-pub use common::Address;
+pub use common::EmailAddress;
 
 mod common;
 mod simple;

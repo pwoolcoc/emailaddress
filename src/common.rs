@@ -14,22 +14,19 @@ impl Error for AddrError {
 }
 
 #[deriving(Show, PartialEq)]
-pub struct Address {
+pub struct EmailAddress {
     pub local: String,
     pub domain: String,
 }
 
-impl Address {
-    pub fn new(local: String, domain: String) -> Address {
-        Address {
-            local: local,
-            domain: domain,
-        }
+impl EmailAddress {
+    pub fn new(string: &str) -> EmailAddress {
+        parse(string).unwrap()
     }
 }
 
-impl FromStr for Address {
-    fn from_str(string: &str) -> Option<Address> {
+impl FromStr for EmailAddress {
+    fn from_str(string: &str) -> Option<EmailAddress> {
         match parse(string) {
             Ok(s) => Some(s),
             Err(_) => None,
