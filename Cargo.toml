@@ -3,3 +3,12 @@
 name = "emailaddress"
 version = "0.0.1"
 authors = ["Paul Woolcock <paul@woolcock.us>"]
+
+[features]
+
+rfc5322 = ["peg"]
+rfc6531 = ["peg"]
+
+[dependencies.peg]
+git = "https://github.com/kevinmehall/rust-peg"
+optional = true
