@@ -1,4 +1,5 @@
 use std::str::FromStr;
+use std::fmt::{Show, Formatter, FormatError};
 use std::error::Error;
 use simple::parse;
 
@@ -13,7 +14,7 @@ impl Error for AddrError {
     }
 }
 
-#[deriving(Show, PartialEq)]
+#[deriving(PartialEq)]
 pub struct EmailAddress {
     pub local: String,
     pub domain: String,
@@ -22,6 +23,12 @@ pub struct EmailAddress {
 impl EmailAddress {
     pub fn new(string: &str) -> EmailAddress {
         parse(string).unwrap()
+    }
+}
+
+impl Show for EmailAddress {
+    fn fmt(&self, f: &mut Formatter) -> Result<(), FormatError> {
+        write!(f, "{}@{}", self.local, self.domain)
     }
 }
 
