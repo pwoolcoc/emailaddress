@@ -10,5 +10,7 @@ rfc5322 = ["peg"]
 rfc6531 = ["peg"]
 
 [dependencies.peg]
-git = "https://github.com/kevinmehall/rust-peg"
+git = "https://github.com/emk/rust-peg"
+# Go back to the main project once the enum problems are merged in
+# git = "https://github.com/kevinmehall/rust-peg"
 optional = true
