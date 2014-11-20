@@ -1,6 +1,6 @@
 use std::str::FromStr;
-use std::fmt::{Show, Formatter, FormatError};
-use std::error::Error;
+use std::fmt::{Show, Formatter, Error};
+use std::error;
 use simple::parse;
 
 #[deriving(Show)]
@@ -8,7 +8,7 @@ pub struct AddrError {
     pub msg: String
 }
 
-impl Error for AddrError {
+impl error::Error for AddrError {
     fn description(&self) -> &str {
         self.msg.as_slice()
     }
@@ -27,7 +27,7 @@ impl EmailAddress {
 }
 
 impl Show for EmailAddress {
-    fn fmt(&self, f: &mut Formatter) -> Result<(), FormatError> {
+    fn fmt(&self, f: &mut Formatter) -> Result<(), Error> {
         write!(f, "{}@{}", self.local, self.domain)
     }
 }
