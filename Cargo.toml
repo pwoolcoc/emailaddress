@@ -3,3 +3,5 @@
 name = "emailaddress"
 version = "0.0.1"
 authors = ["Paul Woolcock <paul@woolcock.us>"]
+description = "Simple email address type and parser"
+license = "MIT"
