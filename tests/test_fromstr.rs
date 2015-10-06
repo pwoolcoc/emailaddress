@@ -1,9 +1,10 @@
 extern crate emailaddress;
-use self::emailaddress::EmailAddress;
+use self::emailaddress::{EmailAddress, AddrError};
+use std::str::{FromStr};
 
 #[test]
 fn test_from_str() {
-    let addr: Option<EmailAddress> = from_str("someone@example.com");
+    let addr: Result<EmailAddress, AddrError>  = FromStr::from_str("someone@example.com");
     assert_eq!(
             addr.unwrap(),
             EmailAddress {

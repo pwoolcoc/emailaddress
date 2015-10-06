@@ -1,4 +1,4 @@
-pub use common::EmailAddress;
+pub use common::{EmailAddress, AddrError};
 
 mod common;
 mod simple;

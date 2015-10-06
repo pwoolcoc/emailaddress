@@ -5,7 +5,7 @@ pub fn parse(input: &str) -> Result<EmailAddress, AddrError> {
     if input.is_empty() {
         return Err(AddrError { msg: "empty string is not valid".to_string() });
     }
-    let parts: Vec<&str> = input.rsplitn(1, '@').collect();
+    let parts: Vec<&str> = input.rsplitn(2, '@').collect();
 
     if parts[0].is_empty() {
         return Err(AddrError { msg: "empty string is not valid for local part".to_string() });
