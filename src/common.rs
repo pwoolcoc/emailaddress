@@ -1,20 +1,26 @@
 use std::str::FromStr;
-use std::fmt::{Show, Formatter, Error};
+use std::fmt;
 use std::error;
 use simple::parse;
 
-#[deriving(Show)]
+#[derive(Clone, PartialEq, Debug)]
 pub struct AddrError {
     pub msg: String
 }
 
-impl error::Error for AddrError {
-    fn description(&self) -> &str {
-        self.msg.as_slice()
+impl fmt::Display for AddrError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.msg)
     }
 }
 
-#[deriving(PartialEq)]
+impl error::Error for AddrError {
+    fn description(&self) -> &str {
+        self.msg.as_ref()
+    }
+}
+
+#[derive(Clone, PartialEq, Debug)]
 pub struct EmailAddress {
     pub local: String,
     pub domain: String,
@@ -26,18 +32,16 @@ impl EmailAddress {
     }
 }
 
-impl Show for EmailAddress {
-    fn fmt(&self, f: &mut Formatter) -> Result<(), Error> {
+impl fmt::Display for EmailAddress {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "{}@{}", self.local, self.domain)
     }
 }
 
 impl FromStr for EmailAddress {
-    fn from_str(string: &str) -> Option<EmailAddress> {
-        match parse(string) {
-            Ok(s) => Some(s),
-            Err(_) => None,
-        }
+    type Err = AddrError;
+    fn from_str(string: &str) -> Result<EmailAddress, AddrError> {
+        parse(string)
     }
 }
 

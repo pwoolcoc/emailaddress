@@ -1,4 +1,3 @@
-#![feature(globs)]
 pub use common::EmailAddress;
 
 mod common;
