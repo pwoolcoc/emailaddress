@@ -9,7 +9,7 @@ type, so you can stop stringly-typing your email addresses.
 use emailaddress::EmailAddress;
 
 fn main() {
-    let email = EmailAddress::new("someone@example.com");
+    let email = EmailAddress::new("someone@example.com").unwrap();
     assert_eq!(email.local, "someone".to_string()); 
     assert_eq!(email.domain, "example.com".to_string());
 }

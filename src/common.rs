@@ -27,8 +27,8 @@ pub struct EmailAddress {
 }
 
 impl EmailAddress {
-    pub fn new(string: &str) -> EmailAddress {
-        parse(string).unwrap()
+    pub fn new(string: &str) -> Result<EmailAddress, AddrError> {
+        parse(string)
     }
 }
 
