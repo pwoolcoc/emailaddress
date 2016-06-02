@@ -10,8 +10,8 @@ use emailaddress::EmailAddress;
 
 fn main() {
     let email = EmailAddress::new("someone@example.com").unwrap();
-    assert_eq!(email.local, "someone".to_string()); 
-    assert_eq!(email.domain, "example.com".to_string());
+    assert_eq!(&email.local, "someone"); 
+    assert_eq!(&email.domain, "example.com");
 }
 
 // or with from_str:

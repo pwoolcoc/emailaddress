@@ -1,11 +1,11 @@
 use std::str::FromStr;
 use std::fmt;
 use std::error;
-use simple::parse;
+use simple;
 
 #[derive(Clone, PartialEq, Debug)]
 pub struct AddrError {
-    pub msg: String
+    pub msg: String,
 }
 
 impl fmt::Display for AddrError {
@@ -28,7 +28,7 @@ impl error::Error for AddrError {
 ///
 /// ```
 /// use emailaddress::EmailAddress;
-/// let email = match EmailAddress::simple("someone@example.com") {
+/// let email = match EmailAddress::new("someone@example.com") {
 ///     Ok(addr) => addr,
 ///     Err(e) => panic!("Error parsing address, error was {}", e),
 /// };
@@ -43,7 +43,7 @@ pub struct EmailAddress {
 
 impl EmailAddress {
     pub fn new(string: &str) -> Result<EmailAddress, AddrError> {
-        parse(string)
+        simple::parse(string)
     }
 }
 
@@ -56,7 +56,6 @@ impl fmt::Display for EmailAddress {
 impl FromStr for EmailAddress {
     type Err = AddrError;
     fn from_str(string: &str) -> Result<EmailAddress, AddrError> {
-        parse(string)
+        simple::parse(string)
     }
 }
-
