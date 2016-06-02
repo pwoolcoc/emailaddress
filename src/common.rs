@@ -20,6 +20,21 @@ impl error::Error for AddrError {
     }
 }
 
+/// Email address data structure
+///
+/// Represents an email address, right now just the `name@domain` portion.
+///
+/// # Example
+///
+/// ```
+/// use emailaddress::EmailAddress;
+/// let email = match EmailAddress::simple("someone@example.com") {
+///     Ok(addr) => addr,
+///     Err(e) => panic!("Error parsing address, error was {}", e),
+/// };
+/// assert_eq!(&email.local, "someone");
+/// assert_eq!(&email.domain, "example.com");
+/// ```
 #[derive(Clone, PartialEq, Debug)]
 pub struct EmailAddress {
     pub local: String,
