@@ -7,6 +7,10 @@ pub fn parse(input: &str) -> Result<EmailAddress, AddrError> {
     }
     let parts: Vec<&str> = input.rsplitn(2, '@').collect();
 
+    if parts.len() < 2 {
+        return Err(AddrError { msg: "missing '@' character".to_string() });
+    }
+
     if parts[0].is_empty() {
         return Err(AddrError { msg: "empty string is not valid for local part".to_string() });
     }
@@ -28,6 +32,8 @@ mod test {
 
     #[test]
     fn test_simple_parse() {
+        assert!(parse("f@a").is_ok());
+        assert!(parse("foo").is_err());
         assert_eq!(
                 parse("someone@example.com").unwrap(),
                 EmailAddress {
