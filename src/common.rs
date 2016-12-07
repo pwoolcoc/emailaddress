@@ -36,6 +36,7 @@ impl error::Error for AddrError {
 /// assert_eq!(&email.domain, "example.com");
 /// ```
 #[derive(Clone, PartialEq, Debug)]
+#[cfg_attr(feature = "ser", derive(Serialize, Deserialize))]
 pub struct EmailAddress {
     pub local: String,
     pub domain: String,

@@ -1,9 +1,16 @@
 [package]
 
 name = "emailaddress"
-version = "0.3.1"
+version = "0.4.0"
 authors = ["Paul Woolcock <paul@woolcock.us>"]
 description = "Simple email address type and parser"
 repository = "https://github.com/pwoolcoc/emailaddress-rs"
 keywords = ["email"]
 license = "MIT"
+
+[dependencies]
+serde = { version = "0.8.19", optional = true }
+serde_derive = { version = "0.8.19", optional = true }
+
+[features]
+ser = ["serde", "serde_derive"]
